@@ -10,12 +10,10 @@ In dit hoofdstuk zien we hoe we **asynchroon** kunnen programmeren in **JavaScri
             alert("Start met " + taak + ".");
             alert("Ik heb gedaan met " + taak + ".");
             callback();
-        }`
-
- `       function tevredenZijn() {
+        }
+function tevredenZijn() {
             alert("Ik ben tevreden over mijn werk!");
         }
-
         voerTaakUit("JavaScript herhalen", tevredenZijn);`
 
 Op Moodle staat de cursus:
