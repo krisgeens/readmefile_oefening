@@ -6,13 +6,13 @@ In dit hoofdstuk zien we hoe we **asynchroon** kunnen programmeren in **JavaScri
 
 ## Hier een voorbeeldje van een call-back functie:
 
-` function voerTaakUit(taak, callback) {
+`function voerTaakUit(taak, callback) {
             alert("Start met " + taak + ".");
             alert("Ik heb gedaan met " + taak + ".");
             callback();
-        }
+        }`
 
-        function tevredenZijn() {
+ `       function tevredenZijn() {
             alert("Ik ben tevreden over mijn werk!");
         }
 
@@ -54,5 +54,5 @@ Op deze software hoeft geen licentie te worden betaald, het is freeware.
 
 Voor meer info en voorstellen tot samenwerken kan je contact opnemen met de eigenaar van deze Git Repo.
 
-** Happy Coding! ** :-)
+**Happy Coding!** :-)
 
