@@ -16,6 +16,8 @@ function tevredenZijn() {
         }
         voerTaakUit("JavaScript herhalen", tevredenZijn);`
 
+`nog meer code`
+
 Op Moodle staat de cursus:
 
 [Moodle van CVO De Verdieping](https://moodle.eschool.be)
