@@ -6,11 +6,7 @@ In dit hoofdstuk zien we hoe we **asynchroon** kunnen programmeren in **JavaScri
 
 ## Hier een voorbeeldje van een call-back functie:
 
-`function tevredenZijn() {
-      alert("Ik ben tevreden over mijn werk!");
-      }
-
-      voerTaakUit("JavaScript herhalen", tevredenZijn);`
+`function voerTaakUit("JavaScript herhalen", tevredenZijn);`
 
 
 Op Moodle staat de cursus:
