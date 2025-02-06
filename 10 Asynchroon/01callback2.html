@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback met timeout</title>
+</head>
+
+<body>
+    <script>
+        function voerTaakUit(taak, callback) {
+            console.log("Start met " + taak + ".");
+            console.log("Ik heb gedaan met " + taak + ".");
+            callback(pauzeNemen);
+        }
+
+        function tevredenZijn(callback) {
+            console.log("Ik ben tevreden over mijn werk!");
+            setTimeout(callback, 3000);
+
+        }
+
+        function pauzeNemen() {
+            console.log("Tijd voor pauze nu!");
+        }
+
+        voerTaakUit("JavaScript herhalen", tevredenZijn);
+
+    </script>
+</body>
+
+</html>

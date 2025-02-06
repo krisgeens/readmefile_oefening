@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opdracht Promises - Kris Geens</title>
+
+</head>
+
+<body>
+
+    <p>Selecteer een knop om de video in te lezen</p>
+    <p id="error"></p>
+    <div id="buttonsDiv">
+        <button>Video 1</button>
+        <button>Video 2</button>
+    </div>
+    <h2 id="titel"></h2>
+    <iframe id="youtube" width="560" height="315" src="" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    <div id="lyrics"></div>
+
+
+    <script>
+        "use strict";
+
+        let pError, youtube, lyrics, h2Titel, buttonsDiv;
+        let jsonData, selectedButton;
+
+        window.addEventListener("DOMContentLoaded", function () {
+            pError = document.getElementById('error');
+            youtube = document.getElementById('youtube');
+            lyrics = document.getElementById('lyrics');
+            h2Titel = document.getElementById('titel');
+            buttonsDiv = document.getElementById('buttonsDiv');
+            buttonsDiv.addEventListener('click', setSelectedButton);
+        });
+
+        function setSelectedButton(e) {
+            selectedButton = Array.from(e.target.parentNode.children).indexOf(e.target);
+            setVideoAndLyrics();
+        }
+
+        function setVideoAndLyrics() {
+            // Controleer of er data is:
+            if (jsonData) {
+                // Indien ja: vraag de gegevens (= object) op die overeenkomen met de knop waar op geklikt is:
+                let gekozenArtiest = jsonData[selectedButton];
+                // vul de titel, youtube-src en lyrics in:
+                h2Titel.innerHTML = gekozenArtiest.titel;
+                youtube.src = `https://www.youtube.com/embed/${gekozenArtiest.youtubeUrl}`;
+                lyrics.innerHTML = gekozenArtiest.lyrics;
+            }
+            else {
+                // indien nee: vul de pError in:
+                pError.innerHTML = "Sorry, de video's kunnen niet worden ingelezen. Probeer het later opnieuw";
+            }
+        }
+
+        fetch('promises.json')
+            // json bevat een object met "list" als key en een array als value.
+            // In deze array zitten opnieuw 2 objecten.
+            // de fetch maakt automatisch een promise en er kan dus een .then op worden toegepast:
+            .then(response => response.json())   // het antwoord van api moet nog worden omgezet naar json.
+            // deze json returnt opnieuw een promise, dus opnieuw een .then:
+            .then(data => {
+                // geeft een object met daarin de key "list" met daarin een array met 2 objecten -> de array met de 2 objecten uit de key "list" halen:
+                jsonData = data.list;
+            })
+            .catch(error => {
+                pError.innerHTML = "Sorry, de video's kunnen niet worden ingelezen. Probeer het later opnieuw";
+            });
+
+    </script>
+
+</body>
+
+</html>
