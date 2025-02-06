@@ -11,12 +11,13 @@ In dit hoofdstuk zien we hoe we **asynchroon** kunnen programmeren in **JavaScri
             alert("Ik heb gedaan met " + taak + ".");
             callback();
         }
+
 function tevredenZijn() {
             alert("Ik ben tevreden over mijn werk!");
         }
+
         voerTaakUit("JavaScript herhalen", tevredenZijn);`
 
-`nog meer code`
 
 Op Moodle staat de cursus:
 
